@@ -18,5 +18,4 @@ pipeline {
       }
     }
   }
-}         
-docker tag ecr-demoing:latest public.ecr.aws/e4j0o0u9/ecr-demoing:latest
+}
