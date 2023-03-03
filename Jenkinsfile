@@ -4,16 +4,16 @@ pipeline {
     stage ('Build') {
       steps {
         sh 'printenv'
-        sh 'docker build -t webapp .'
+        sh 'docker build -t ecr-demoing .'
       }
     }
     stage ('Publish ECR') {
       steps {
         withEnv (["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID}", "AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY}", "AWS_DEFAULT_REGION=${env.AWS_DEFAULT_REGION}"]) {
-          sh 'docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 117892039954.dkr.ecr.us-east-1.amazonaws.com'
-          sh 'docker build -t webapp .'
-          sh 'docker tag webapp:""$BUILD_ID""'
-          sh 'docker push 117892039954.dkr.ecr.us-east-1.amazonaws.com/webapp:""$BUILD_ID""'
+          sh 'docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) public.ecr.aws/e4j0o0u9'
+          sh 'docker build -t ecr-demoing .'
+          sh 'docker tag ecr-demoing:""$BUILD_ID""'
+          sh 'docker push public.ecr.aws/e4j0o0u9/ecr-demoing:""$BUILD_ID""'
         }
       }
     }
