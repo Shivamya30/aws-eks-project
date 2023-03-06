@@ -19,17 +19,3 @@ pipeline {
     }
   }
 }
-    /*stage ('Kubernetes Deploy') {
-      steps {
-        kubernetesDeploy(
-          configs: 'service.yml',
-          kubeconfigId: 'K8S',
-          enableConfigSubstitution: true
-        )
-      }
-    }
-    stage ('Kubernetes Deploy using Kubectl') {
-      steps {
-        sh 'kubectl apply -f service.yml'
-      }
-    }/*
