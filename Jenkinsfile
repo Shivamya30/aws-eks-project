@@ -23,6 +23,9 @@ pipeline {
         kubeconfigId: 'K8S',
         enableConfigSubstitution: true
         )
+      } 
+    stage ('Kubernetes Deploy using Kubectl') {
+      sh 'kubectl apply -f MyAwesomeApp/springBootDeploy.yml'
     }
   }
 }
