@@ -10,7 +10,7 @@ def fetchDetails():
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, Channel welcome to my guys!!</p>"
+    return "<p>Hello, Channel welcome!!!</p>"
 
 @app.route("/health")
 def health():
