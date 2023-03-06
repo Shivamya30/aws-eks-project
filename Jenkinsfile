@@ -18,14 +18,18 @@ pipeline {
       }
     }
     stage ('Kubernetes Deploy') {
-      kubernetesDeploy(
-        configs: 'service.yml',
-        kubeconfigId: 'K8S',
-        enableConfigSubstitution: true
+      steps {
+        kubernetesDeploy(
+          configs: 'service.yml',
+          kubeconfigId: 'K8S',
+          enableConfigSubstitution: true
         )
-      } 
+      }
+    }
     stage ('Kubernetes Deploy using Kubectl') {
-      sh 'kubectl apply -f MyAwesomeApp/springBootDeploy.yml'
+      steps {
+        sh 'kubectl apply -f service.yml'
+      }
     }
   }
 }
