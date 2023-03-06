@@ -17,5 +17,12 @@ pipeline {
         }
       }
     }
+    stage ('Kubernetes Deploy') {
+      kubernetesDeploy(
+        configs: 'service.yml',
+        kubeconfigId: 'K8S',
+        enableConfigSubstitution: true
+        )
+    }
   }
 }
