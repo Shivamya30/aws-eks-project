@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'printenv'
         sh 'docker build -t ecr-demoing .'
-        sh 'docker run -d -p 5000:5000 ecr-demoning:""&BUILD_ID""'
+        sh 'docker run -d -p 5000:5000 ecr-demoning:latest'
       }
     }
     stage ('Publish ECR') {
