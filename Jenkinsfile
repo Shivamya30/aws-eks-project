@@ -17,7 +17,9 @@ pipeline {
         }
       }
     }
-    stage ('Kubernetes Deploy') {
+  }
+}
+    /*stage ('Kubernetes Deploy') {
       steps {
         kubernetesDeploy(
           configs: 'service.yml',
@@ -30,6 +32,4 @@ pipeline {
       steps {
         sh 'kubectl apply -f service.yml'
       }
-    }
-  }
-}
+    }/*
